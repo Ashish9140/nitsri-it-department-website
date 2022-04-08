@@ -1,0 +1,71 @@
+.typing-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(240, 238, 228);
+}
+
+@keyframes cursor {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: black;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 100%;
+    }
+
+    90%,
+    to {
+        width: 0;
+    }
+}
+
+@keyframes slide {
+    50% {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+
+    to {
+        font-size: 0;
+        letter-spacing: 0;
+    }
+}
+
+.typing-slider {
+    font-family: Consolas, monospace;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.typing-slider p {
+    position: relative;
+    display: inline;
+    font-size: 0;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    animation: slide 20s step-start infinite;
+}
+
+.typing-slider p::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-left: 3px solid black;
+    background-color: rgb(240, 238, 228);
+    animation: typing 5s infinite, cursor 1s infinite;
+}
